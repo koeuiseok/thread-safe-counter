@@ -4,6 +4,7 @@
 #include <unistd.h>
 #include <semaphore.h>
 #include <pthread.h>
+#include <time.h>
 
 typedef struct __counter_sema {
 	int value_s;
@@ -60,20 +61,26 @@ void error_handling(char* msg)
 
 int main(int argc, char *argv[])
 {   
+    clock_t start, end;
+    float cct;
 	if(argc != 2){
 		error_handling("argument error!");
 	}
     loop_cnt = atoi(argv[1]);
 
+    start = clock();
     init(&counter, 1);
 
     pthread_t p1, p2;
-    printf("main: begin [counter = %d]\n", get(&counter));
+    //printf("main: begin [counter = %d]\n", get(&counter));
     pthread_create(&p1, NULL, mythread, "A"); 
     pthread_create(&p2, NULL, mythread, "B");
     // join waits for the threads to finish
     pthread_join(p1, NULL); 
     pthread_join(p2, NULL); 
+    end = clock();
+    cct = (float)(end - start) / CLOCKS_PER_SEC;
+    printf("time of thread mutex : %f\n", cct);
     printf("main: done [counter: %d] [should be: %d]\n", get(&counter), loop_cnt * 2);
     return 0;
 }

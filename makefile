@@ -21,6 +21,7 @@ sem_counter.o: sem_counter.c
 clean:
 	rm -f *.o
 	rm -f $(TARGET)
+	rm -f sema
 
 p_run: tscounter
 	./tscounter 100000
