@@ -29,3 +29,12 @@ make s_run
 '''
 make clean
 '''
+
+
+## Performance Comparison Table
+( https://github.com/jongchank/thread-safe-counter/files/6582530/-.1.1.pdf )
+
+Mutex is faster than Semaphore
+
+
+
