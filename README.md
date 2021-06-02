@@ -32,7 +32,7 @@ make clean
 
 
 ## Performance Comparison Table
-[!download](https://github.com/jongchank/thread-safe-counter/files/6582530/-.1.1.pdf)
+![download](https://github.com/jongchank/thread-safe-counter/files/6582530/-.1.1.pdf)
 
 Mutex is faster than Semaphore
 
