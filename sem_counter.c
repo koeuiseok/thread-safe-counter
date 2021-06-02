@@ -80,7 +80,7 @@ int main(int argc, char *argv[])
     pthread_join(p2, NULL); 
     end = clock();
     cct = (float)(end - start) / CLOCKS_PER_SEC;
-    printf("time of thread mutex : %f\n", cct);
+    printf("time of thread semaphore : %f\n", cct);
     printf("main: done [counter: %d] [should be: %d]\n", get(&counter), loop_cnt * 2);
     return 0;
 }
